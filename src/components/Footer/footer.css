@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.footer{
+    margin: 100px 200px 20px 200px;
+    .top{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        .item{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+            h5{
+                color: gray;
+            }
+        }
+    }
+
+    .bottom{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .item h3 span{
+            font-size: 14px;
+            color: grey;
+        }
+
+        .item img{
+            max-width:300px;
+        }
+    }
+}
