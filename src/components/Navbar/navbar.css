@@ -1,80 +1,62 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
-body {
-    margin-top: 80px; /* Add margin-top to body to prevent content from being hidden under the fixed navbar */
-}
-
-.navbar {
-    position: fixed; /* Make the navbar fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
+.navbar{
     height: 80px;
-    background-color: #fff;
-    z-index: 999; /* Set a high z-index to ensure the navbar is on top of other elements */
-
-    .container {
+    .container{
         padding: 20px 12px;
         display: flex;
         justify-content: space-between;
-
-        .left {
+        .left{
             display: flex;
             justify-content: space-between;
             gap: 20px;
             align-items: center;
-
-            a {
+            a{
                 text-decoration: none;
                 color: #000;
             }
-        }
-
-        .right {
+        }.right{
             display: flex;
             justify-content: space-around;
             gap: 20px;
             align-items: center;
-
-            a {
+            a{
                 text-decoration: none;
                 color: #000;
             }
 
-            .cart {
+            .cart{
                 position: relative;
-            }
-
-            .cart span {
+            }.cart span{
                 position: absolute;
                 content: "";
                 width: 19px;
-                height: 19px;
+                height:19px;
                 top: -10px;
                 right: -10px;
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: center;    
                 text-align: center;
-                background-color: #00a9ff;
+                background-color: #00A9FF;
                 border-radius: 50%;
             }
+
         }
+        .center{
+        display: flex;
+        align-items: center;
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
 
-        .center {
-            display: flex;
-            align-items: center;
-
-            a {
-                text-decoration: none;
-                color: black;
-                font-weight: bold;
-            }
+        }
         }
     }
 }
