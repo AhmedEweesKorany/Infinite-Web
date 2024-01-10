@@ -9,6 +9,8 @@ import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
+//main css file 
+import "./main.css"
 
 const Layout = ()=>{
   return(

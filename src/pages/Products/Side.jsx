@@ -1,8 +1,34 @@
 import React from "react";
 import "./style.css";
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 function Side() {
   return (
     <div className="side">
+      <div className="toggelIcons">
+        <div className="close" onClick={()=>{
+          document.querySelector(".side").style.translate="-300px"
+          document.querySelector(".side").style.transition="0.4s ease"
+          document.querySelector(".open").style.display="block"
+          document.querySelector(".close").style.display="none"
+          document.querySelector('.products-parent').style.marginLeft="-200px"
+          document.querySelector(".products-parent").style.transition="0.4s ease"
+
+        }}>
+          <CloseIcon/>
+        </div>
+        <div className="open" style={{display:"none"}} onClick={()=>{
+                    document.querySelector(".side").style.translate="0"
+                    document.querySelector(".side").style.transition="0.4s ease"
+                    document.querySelector(".close").style.display="block"
+                    document.querySelector(".open").style.display="none"
+          document.querySelector('.products-parent').style.marginLeft="0"
+                 
+          
+        }}>
+            <MenuIcon/>
+        </div>
+      </div>
       <h4 className="h4">Prducts category</h4>
 
       <div>

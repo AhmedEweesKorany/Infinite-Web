@@ -1,9 +1,8 @@
 import React from "react";
-import "./category.css";
 import { Link } from "react-router-dom";
 const Category = () => {
   return (
-    <div className="category">
+    <div className="category" id="category">
       <div className="col">
         <div className="row">
           <img

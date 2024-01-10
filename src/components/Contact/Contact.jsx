@@ -1,5 +1,4 @@
 import React from "react";
-import "./contact.css";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';

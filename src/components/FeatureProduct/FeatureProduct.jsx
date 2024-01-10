@@ -1,5 +1,4 @@
 import React from 'react'
-import "./FeatureProduct.css"
 import Card from '../Card/Card'
 
 const FeatureProduct = ({ type }) => {
