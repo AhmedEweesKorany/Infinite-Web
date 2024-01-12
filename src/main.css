@@ -6,7 +6,9 @@
     box-sizing: border-box;
     max-width: 100vw;
     scroll-behavior: smooth;
-    max-width: 100%;
+}
+body {
+    margin: 0;
 }
 
 /*Navbar code*/
@@ -74,13 +76,14 @@
                 .items{
                
                     position: absolute;
+                    /* display: none; */
                     right: -40px;
                     padding: 20px 50px;
-                    width: 100vw;
                     height: 100vh;
                     min-height: fit-content;
                     background-color: #ddd;
                     display: flex;
+                    width: 100vw;
                     flex-direction: column;
                     align-items: flex-end;
                     justify-content: space-between;
@@ -92,6 +95,7 @@
                 }
                 #check:checked + .items{
                     transform: translateX(0);
+                 
                     transition: 0.4s ease;
                  }
                 
