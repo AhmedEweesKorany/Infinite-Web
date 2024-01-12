@@ -10,8 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
 
   return (
-        <div className='navbar'>
-            <div className="container">
+        <div className='main-navbar'>
+            <div className="navbar-container">
                 <div className="center">
         <Link to="/">INGINITE WEB</Link>
                 </div>
