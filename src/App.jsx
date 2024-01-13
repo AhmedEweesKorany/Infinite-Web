@@ -43,14 +43,17 @@ const router = createBrowserRouter([
         path:'/Product/:id',
         element:<Product/>
       },
+      {
+        path:"/Contact",
+        element:<ContactUs/>
+      }
       
     ]
   }
 ]); 
 function App() {
   return (
-    // <RouterProvider router={router}/>
-    <ContactUs/>
+    <RouterProvider router={router}/>
   );
 }
 
