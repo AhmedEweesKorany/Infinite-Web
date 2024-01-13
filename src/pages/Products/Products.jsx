@@ -56,16 +56,16 @@ function Products() {
           <div className="row">
             {pro.map((item) => {
               return (
-                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5">
-                <div className="card pro-card">
-                  <img src={im} alt="" className="card-img-top card-img" />
-                  <div className="card-body">
-                    <h6 className="card-title mt-2">{item.title}</h6>
-                    <button className="btn mt-3 btn-dark">add to cart</button>
-                    <span className="card-text price">{item.text}</span>
+                <div className="col-3 mt-5">
+                  <div className="card pro-card">
+                    <img src={im} alt="" className="card-img-top card-img" />
+                    <div className="card-body">
+                      <h6 className="card-title mt-2">{item.title}</h6>
+                      <button className="btn mt-3 btn-dark">add to cart</button>
+                      <span className="card-text price">{item.text}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
               );
             })}
           </div>
