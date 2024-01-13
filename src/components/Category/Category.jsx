@@ -11,7 +11,7 @@ const Category = () => {
           />
 
           <button>
-            <Link className="category-link" to={"/products/1"}>children</Link>
+            <Link className="category-link" to={"/products/child"}>children</Link>
           </button>
         </div>
         <div className="sf">
@@ -21,7 +21,7 @@ const Category = () => {
           />
 
           <button>
-            <Link className="category-link" to={"/products/2"}>women</Link>
+            <Link className="category-link" to={"/products/women"}>women</Link>
           </button>
         </div>
       </div>
@@ -33,7 +33,7 @@ const Category = () => {
           />
 
           <button>
-            <Link className="category-link" to={"/products/3"}>men</Link>
+            <Link className="category-link" to={"/products/men"}>men</Link>
           </button>
         </div>
       </div>
@@ -47,7 +47,7 @@ const Category = () => {
               />
 
               <button>
-                <Link className="category-link" to={"/products/4"}>shose</Link>
+                <Link className="category-link" to={"/products/shoes"}>shoes</Link>
               </button>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Category = () => {
               />
 
               <button>
-                <Link className="category-link" to={"/products/5"}>Accessories</Link>
+                <Link className="category-link" to={"/products/Accessories"}>Accessories</Link>
               </button>
             </div>
           </div>
@@ -71,7 +71,7 @@ const Category = () => {
           />
 
           <button>
-            <Link className="category-link" to={"/products/6"}>New Seazon</Link>
+            <Link className="category-link" to={"/products/NewSeazon"}>New Seazon</Link>
           </button>
         </div>
       </div>

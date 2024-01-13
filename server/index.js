@@ -15,10 +15,17 @@ const connection = mysql.createConnection({
 })
 
 app.get("/",(req,res)=>{
-    const query = "SELECT * FROM `Products`"
+    const cate = req.query.cate
+    let query;
+    if(cate == "NewSeazon"){
+         query = `SELECT * FROM Products WHERE isNew = 1 `
+    }else{
+
+        query = `SELECT * FROM Products WHERE Category = '${cate}' `
+    }
     connection.execute(query,(err,data)=>{
         if(err){
-            console.log(err)
+            console.log("errorrrrrrrr happped",err)
         }else{
             res.send(data)
         }

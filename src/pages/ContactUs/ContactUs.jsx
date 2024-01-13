@@ -19,7 +19,7 @@ const ContactUs = () => {
       <div className="background-contactus">
         <div className="big-container">
           <div className="cards-container container">
-              <div className="row mt-5">
+              <div className="row contact-row mt-5">
                 {
                   data.map((person)=>{
                     return(

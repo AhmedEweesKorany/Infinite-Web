@@ -44,8 +44,9 @@
                 justify-content: center;
                 align-items: center;    
                 text-align: center;
-                background-color: #00A9FF;
+                background-color: #2850e1;
                 border-radius: 50%;
+                color: white;
             }
                
         }
@@ -254,8 +255,8 @@
                 /* display: block; */
                 color: #000;
                 text-decoration: none;
-                padding: 7px;
-                width: 100px;
+                padding: 13px 40px;
+                width: 200px;
                 height: 110%;
             }
             &:hover{
@@ -438,29 +439,13 @@
 
 /*Products Page code */
 
-.products-container{
+.pro-card{
+    border: none;
+    /* padding: 12px; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* min-width: 270px; */
+    /* min-height: 300px; */
 }
-.products{
-
-    .bottom{
-       display: flex;
-       flex-wrap: wrap;
-       gap: 20px;
-       justify-content: space-between;
-       .child{
-        width: 200px;
-        height: 400px;
-        img{
-            width: 100%;
-            height: 80%;
-
-        }
-       }
-    }
-}
-
-
 /*ContactUs Code (Sameh)*/
 .ContactUs-image{
     border-radius: 50%;
@@ -470,7 +455,7 @@
     aspect-ratio: 4/4;
     margin-bottom: 25px;
 }
-.row{
+.contact-row {
     display: flex;
     /* background-color: #000; */
   
@@ -482,7 +467,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .row{
+    .contact-row {
         align-items: center;
         flex-direction: column;
     }
@@ -540,7 +525,7 @@
     height: 4px;
     display: block;
     margin: 0 auto;
-    background-color: #4caf50;
+    background-color: #2850e1;
   }
   .aboutheading p {
     font-size: 18px;
@@ -588,7 +573,7 @@
   .about-content .read-more {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #4caf50;
+      background-color: #2850e1;
       color:#fff;
       font-size: 19px;
       text-decoration: none;
@@ -597,7 +582,7 @@
       transition: 0.3s ease;
   }
   .about-content .read-more:hover{
-      background-color: #3e8e41;
+      background-color: #0f32b4dc;
       
   }
 
