@@ -15,6 +15,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 //main css file 
 import "./main.css"
 import axios from "axios";
+import AboutUs from "./pages/AboutUs/AboutUs";
 
 const Layout = ()=>{
 
@@ -46,6 +47,9 @@ const router = createBrowserRouter([
       {
         path:"/Contact",
         element:<ContactUs/>
+      },{
+        path: "/about",
+        element: <AboutUs/>
       }
       
     ]
