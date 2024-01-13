@@ -461,3 +461,42 @@ body {
        }
     }
 }
+
+
+/*ContactUs Code (Sameh)*/
+.ContactUs-image{
+    border-radius: 50%;
+}
+.ContactUs-image .one{
+    width: 80%;
+    aspect-ratio: 4/4;
+    margin-bottom: 25px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+.contactUs-card{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px ;
+}
+
+.cards-container{
+    width: 100%;
+}
+.backcolor{
+    height: 65vh;
+    width: 100%;
+    background-color: #f3e3c2;
+}
+.background-contactus{
+    width: 75%;
+    background-color: white;
+    margin: 50px auto;
+    margin-top: -300px;
+    padding: 0 40px;
+}
+::-webkit-scrollbar{
+    display: none;
+}

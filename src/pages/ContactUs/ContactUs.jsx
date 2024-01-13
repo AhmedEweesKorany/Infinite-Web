@@ -1,5 +1,5 @@
 import React from 'react'
-import "./contactus.css"
+// import "./contactus.css"
 import sameh from "./images/sameh.jpeg"
 import ewees from "./images/ahmedEwees.jpeg"
 import mahmod from "./images/mamduh.jpg"
@@ -24,9 +24,9 @@ const ContactUs = () => {
                   data.map((person)=>{
                     return(
                       <div className="col-4 mt-5">
-                        <div className="card border-0">
+                        <div className="contactUs-card border-0">
                           <div className="body">
-                            <div className="image" >
+                            <div className="ContactUs-image" >
                               <img src={person["image"]} className="one rounded-pill"/>
                             </div>
                             <h3 className="title">
