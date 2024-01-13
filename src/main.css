@@ -474,10 +474,23 @@ body {
 }
 .row{
     display: flex;
+    /* background-color: #000; */
+  
     justify-content: center;
+    flex-wrap: wrap;
+}
+.body p{
+    min-width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .row{
+        align-items: center;
+        flex-direction: column;
+    }
 }
 .contactUs-card{
-    width: 100%;
+    min-width: 100%;
     text-align: center;
     padding: 15px 0px ;
 }
@@ -493,6 +506,7 @@ body {
 .background-contactus{
     width: 75%;
     background-color: white;
+  
     margin: 50px auto;
     margin-top: -300px;
     padding: 0 40px;
