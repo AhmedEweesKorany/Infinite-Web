@@ -8,6 +8,7 @@ import Product from "./pages/Product/Product";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ContactUs from "./pages/ContactUs/ContactUs";
 // bootstrap link
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
@@ -48,7 +49,8 @@ const router = createBrowserRouter([
 ]); 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    // <RouterProvider router={router}/>
+    <ContactUs/>
   );
 }
 
