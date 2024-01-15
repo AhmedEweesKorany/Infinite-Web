@@ -14,6 +14,7 @@ const connection = mysql.createConnection({
     database:"infiniteWeb"
 })
 
+  // Restful APIs
 app.get("/",(req,res)=>{
     const cate = req.query.cate
     let query;
