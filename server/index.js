@@ -19,7 +19,11 @@ app.get("/",(req,res)=>{
     let query;
     if(cate == "NewSeazon"){
          query = `SELECT * FROM Products WHERE isNew = 1 `
-    }else{
+    }else if(!cate){
+        query = `SELECT * FROM Products`
+
+    }
+        else{
 
         query = `SELECT * FROM Products WHERE Category = '${cate}' `
     }
