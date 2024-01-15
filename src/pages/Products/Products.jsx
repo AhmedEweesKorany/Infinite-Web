@@ -11,6 +11,7 @@ import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import WestOutlinedIcon from "@mui/icons-material/WestOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../rtk/slices/Cart-slice";
+import { Link } from "react-router-dom";
 
 function Products() {
 
@@ -54,9 +55,12 @@ return (
           {dataPerPage.map((item) => {
             const Price = Math.round(item.Product_Price)
             return (
-              <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5">
+           
+              <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5" key={item.Product_Id}>
               <div className="card pro-card">
+              <Link to={`/product/${item.Category}/${item.Product_Id}`}>
                 <img src={item.Product_img1} alt="" className="card-img-top card-img" loading="lazy" />
+                </Link>
                 {item.isNew ? <span className="newSeazon">New Seazon</span>:null}
                 <div className="card-body">
                   <h6 className="card-title mt-2">{item.Product_Name}</h6>
@@ -68,6 +72,7 @@ return (
                 </div>
               </div>
             </div>
+          
             );
           })}
 
