@@ -5,9 +5,10 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-
+const state = useSelector(state=>state.cart)
   return (
         <div className='main-navbar'>
             <div className="navbar-container">
@@ -48,7 +49,7 @@ const Navbar = () => {
                 </div>
                 <div className="item cart">
                     <Link to="#"><ShoppingCartOutlinedIcon/></Link>
-                    <span>0</span>
+                    <span>{state.length}</span>
                 </div>
                 <div className="responsive-menu">
                     <div className="menu">
@@ -88,7 +89,8 @@ const Navbar = () => {
                 </div>
                 <div className="item cart">
                     <Link to="#"><ShoppingCartOutlinedIcon/></Link>
-                    <span>0</span>
+                    <span>{state.length}</span>
+                
                 </div>
                     </div>
                     </div>

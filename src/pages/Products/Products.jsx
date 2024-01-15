@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import im from "./ronaldo.jpg";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../Products/style.css";
@@ -7,13 +6,18 @@ import "./product";
 import { useParams } from "react-router";
 import axios from "axios";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import WestOutlinedIcon from "@mui/icons-material/WestOutlined";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../rtk/slices/Cart-slice";
 
 function Products() {
 
+
+  const state = useSelector(state=>state)
+  console.log(state.cart)
+  const dispatch = useDispatch()
   let {cate} = useParams();
   const [data,setData] = useState([]);
   async function getData(cate){
@@ -56,8 +60,10 @@ return (
                 {item.isNew ? <span className="newSeazon">New Seazon</span>:null}
                 <div className="card-body">
                   <h6 className="card-title mt-2">{item.Product_Name}</h6>
-                  <button className="btn mt-3 btn-dark">add to cart</button>
-                  <button className="btn mx-1 mt-3 btn-outline-danger"><FavoriteIcon/></button>
+                  <button className="btn mt-3 btn-dark" onClick={()=>{
+                    dispatch(addToCart(item))
+                  }}>add to cart</button>
+                  <button className="btn mx-1 mt-3 btn-outline-danger no-hover "><FavoriteIcon className="svgnohover"/></button>
                   <h4 className="card-text float-end  mt-4  price">${Price}</h4>
                 </div>
               </div>

@@ -467,7 +467,7 @@
     display: -webkit-box;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      -webkit-line-clamp: 2; /* Limit the paragraph to 3 lines */
+      -webkit-line-clamp: 1; /* Limit the paragraph to 3 lines */
       text-overflow: ellipsis;
 }
 
@@ -676,3 +676,15 @@
         }
       }
 }
+
+/*remove hover from btn*/
+
+.no-hover:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: default !important;
+  }
+  .svgnohover{
+    color:#dc3545;
+  }
