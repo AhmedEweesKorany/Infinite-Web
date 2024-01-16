@@ -14,7 +14,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 //main css file 
 import "./main.css"
-import axios from "axios";
+
 import AboutUs from "./pages/AboutUs/AboutUs";
 
 const Layout = ()=>{
