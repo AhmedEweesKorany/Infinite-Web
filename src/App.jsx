@@ -16,6 +16,8 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 import "./main.css"
 
 import AboutUs from "./pages/AboutUs/AboutUs";
+import Login from "./pages/Login&Signup/Login";
+import Signup from "./pages/Login&Signup/Signup";
 
 const Layout = ()=>{
 
@@ -50,6 +52,12 @@ const router = createBrowserRouter([
       },{
         path: "/about",
         element: <AboutUs/>
+      },{
+        path:"/login",
+        element:<Login/>
+      },{
+        path:"/signup",
+        element:<Signup/>
       }
       
     ]
