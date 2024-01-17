@@ -31,7 +31,7 @@ function Products() {
 
   useEffect(()=>{
     getData(cate)
-  },[])
+  },[data])
   // pagination 
 
   const items = 4
@@ -52,7 +52,7 @@ return (
       <h1 style={{textAlign:"center",textTransform:"capitalize"}}>{cate} Products</h1>
       <div className="container">
         <div className="row">
-          {dataPerPage.map((item) => {
+          {dataPerPage.length > 0  ? dataPerPage.map((item) => {
             const Price = Math.round(item.Product_Price)
             return (
            
@@ -74,7 +74,9 @@ return (
             </div>
           
             );
-          })}
+          }):<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <span class="loader"></span>
+            </div>}
 
           <div className="pagination">
           <div className="icons">

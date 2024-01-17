@@ -18,6 +18,7 @@ import "./main.css"
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Login from "./pages/Login&Signup/Login";
 import Signup from "./pages/Login&Signup/Signup";
+import Cart from "./components/cart/Cart";
 
 const Layout = ()=>{
 
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       },{
         path:"/signup",
         element:<Signup/>
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
       }
       
     ]

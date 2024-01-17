@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useState } from 'react';
-const cart = () => {
+const Cart = () => {
 
     const [count, setCount] = useState(0);
 
@@ -26,7 +26,7 @@ const cart = () => {
 
       <div className="row ">
 
-        <div className="table " style={{width:'66%'}}>
+        <div className="table" style={{width:'66%'}}>
 
           {/* products */}
 
@@ -143,4 +143,4 @@ const cart = () => {
 
 }
 
-export default cart
+export default Cart
