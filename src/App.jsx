@@ -19,6 +19,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import SingUp from "./pages/Login&Signup/SignUp";
 
 import Suc from "./pages/Login&Signup/Suc";
+import Login from "./pages/Login&Signup/Login";
 
 const Layout = ()=>{
 
@@ -62,6 +63,9 @@ const router = createBrowserRouter([
   },{
     path:"/suc-signup",
     element:<Suc/>
+  },{
+    path:"/login",
+    element:<Login/>
   }
 ]); 
 function App() {
