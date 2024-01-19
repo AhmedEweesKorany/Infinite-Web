@@ -64,15 +64,64 @@ app.post("/adduser",(req,res)=>{
     bcrypt.hash(password.toString(),salt,(err,hash)=>{
         if(err) return res.json({Error:"error happend on hashing password"})
 
-        connection.execute(addquery,[username,email,hash,birthday],(err,data)=>{
-            if(err){
-                res.json({Error :"error happend while executing addquery"})
+        // check if user exist or not 
+        const sql = 'SELECT * FROM `users` WHERE email = ?'
+
+        connection.execute(sql,[email],(err,data)=>{
+            if(err) return res.json({Error:"error happedn on restration server "})
+    
+            if(data.length == 1){
+                res.json({Error:"user already exist"})
             }else{
-                res.send("item added successfully")
+                connection.execute(addquery,[username,email,hash,birthday],(err,data)=>{
+                    if(err){
+                        res.json({Error :"error happend while executing addquery"})
+                    }else{
+                        res.send(true)
+                    }
+                })
             }
+            
+      
         })
 
     })
+
+
+    
+})
+
+// login code 
+
+app.post("/login",(req,res)=>{
+    const {email,password} = req.body
+
+    const sql = 'SELECT * FROM `users` WHERE email = ?'
+
+    connection.execute(sql,[email],(err,data)=>{
+        if(err) return res.json({Error:"error happedn on login server"})
+
+        //check if passwords are the same 
+        if(data.length == 1){
+            bcrypt.compare(password.toString(),data[0].password,(err,same)=>{
+                if(err) return res.json({Error:"error happend on server"})
+                if(same){
+                    return res.send(true)
+                }else{
+                    res.json({Error:"invalid password ya m3lm"})
+                }
+            })
+
+        }
+        
+        
+        else if(data.length == 0){
+            res.json({Error:"User not Found"})
+        }else{
+            res.json({Error:"Server Error "})
+        }
+    })
+
 })
 
 // init server

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import FormInput from '../../components/FormInputs/Forminputs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const SingUp = () => {
   const [values, setValues] = useState({
     username: '',
@@ -11,6 +11,8 @@ const SingUp = () => {
     password: '',
     confirmPassword: '',
   });
+
+  const [signupError,setSignupError] = useState("")
 
   const navigate = useNavigate()
 
@@ -73,8 +75,11 @@ const SingUp = () => {
       const response = await axios.post('http://localhost:3000/adduser',values);
 
       // Handle the response from the server if needed
-      console.log('Server response:', response.data);
-     navigate("/suc-signup")
+      if(response.data === true){
+         navigate("/suc-signup")
+      }else if(response.data.Error == "user already exist"){
+        setSignupError(response.data.Error)
+      }
     } catch (error) {
       // Handle error, e.g., show an error message to the user
       console.error('Error sending data:', error);
@@ -89,6 +94,9 @@ const SingUp = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="shadow">
         <h1>Register</h1>
+     {signupError&&   <div class="alert alert-danger" role="alert">
+  {signupError}
+</div>}
         {inputs.map((input) => (
           <FormInput
             key={input.id}
@@ -97,7 +105,8 @@ const SingUp = () => {
             onChange={onChange}
           />
         ))}
-        <button type="submit">Submit</button>
+        <button type="submit">Register</button>
+        <p>Already Have One <Link to={"/login"}> Login Now!</Link></p>
       </form>
     </div>
   );
