@@ -16,9 +16,9 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 import "./main.css"
 
 import AboutUs from "./pages/AboutUs/AboutUs";
-import Login from "./pages/Login&Signup/Login";
-import Signup from "./pages/Login&Signup/Signup";
-import Cart from "./components/cart/Cart";
+import SingUp from "./pages/Login&Signup/SignUp";
+
+import Suc from "./pages/Login&Signup/Suc";
 
 const Layout = ()=>{
 
@@ -50,22 +50,18 @@ const router = createBrowserRouter([
       {
         path:"/Contact",
         element:<ContactUs/>
-      },{
-        path: "/about",
-        element: <AboutUs/>
-      },{
-        path:"/login",
-        element:<Login/>
-      },{
-        path:"/signup",
-        element:<Signup/>
-      },
-      {
-        path:"/cart",
-        element:<Cart/>
       }
       
     ]
+  },{
+    path: "/about",
+    element: <AboutUs/>
+  },{
+    path:"/Signup",
+    element:<SingUp/>
+  },{
+    path:"/suc-signup",
+    element:<Suc/>
   }
 ]); 
 function App() {
