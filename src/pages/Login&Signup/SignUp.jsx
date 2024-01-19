@@ -15,6 +15,7 @@ const SingUp = () => {
   const [signupError,setSignupError] = useState("")
 
   const navigate = useNavigate()
+  axios.defaults.withCredentials = true;
 
   const inputs = [
     {
@@ -94,7 +95,7 @@ const SingUp = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="shadow">
         <h1>Register</h1>
-     {signupError&&   <div class="alert alert-danger" role="alert">
+     {signupError&&   <div className="alert alert-danger" role="alert">
   {signupError}
 </div>}
         {inputs.map((input) => (

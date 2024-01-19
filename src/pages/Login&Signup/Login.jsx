@@ -13,6 +13,7 @@ const Login = () => {
 
   const navigate = useNavigate()
 
+  axios.defaults.withCredentials = true
   const inputs = [
     {
         id: 1,
@@ -53,6 +54,7 @@ const Login = () => {
  
     } catch (error) {
       // Handle error, e.g., show an error message to the user
+      console.log(error)
       setLoginError("server not responding.... try again later")
     }
   };
@@ -67,7 +69,7 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="shadow">
         <h1>Login</h1>
-  {loginError&&      <div class="alert alert-danger" role="alert">
+  {loginError&&      <div className="alert alert-danger" role="alert">
   {loginError}
 </div>}
         {inputs.map((input) => (

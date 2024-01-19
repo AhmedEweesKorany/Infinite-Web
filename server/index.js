@@ -7,10 +7,24 @@ const cors = require("cors")
 const bcrypt = require('bcrypt')
 const salt = 10;
 
+
+const cookieParser = require("cookie-parser")
+const jwt = require('jsonwebtoken')
 const app = exprees()
-app.use(cors())
+const port = process.env.PORT || 3000
+//access .env file
+require("dotenv").config()
+
+app.use(cors(
+    {
+        origin:["http://localhost:5173"],
+        methods:["POST","GET"],
+        credentials:true
+    }
+))
 app.use(exprees.json())
 app.use(exprees.urlencoded({extended:true}))
+app.use(cookieParser())
 
 const connection = mysql.createConnection({
     host:"localhost",
@@ -106,6 +120,9 @@ app.post("/login",(req,res)=>{
             bcrypt.compare(password.toString(),data[0].password,(err,same)=>{
                 if(err) return res.json({Error:"error happend on server"})
                 if(same){
+                    const name = data[0].name;
+                    const token = jwt.sign({name},process.env.JWT_SECRET_KEY,{expiresIn:"1d"}) 
+                    res.cookie("token",token)
                     return res.send(true)
                 }else{
                     res.json({Error:"invalid password ya m3lm"})
@@ -123,6 +140,43 @@ app.post("/login",(req,res)=>{
     })
 
 })
+
+// getting user data after login
+const verifyUser = (req, res, next) => {
+    const token = req.cookies && req.cookies.token;
+
+    if (!token) {
+        req.isAuthenticated = false;
+        return res.status(401).json({ error: "You are not authenticated" });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+        if (err) {
+            console.error('JWT Verification Error:', err);
+            req.isAuthenticated = false;
+            return res.status(401).json({ error: "Invalid token" });
+        }
+
+
+        else {
+            req.name = decoded.name;
+            req.isAuthenticated = true;
+            next();
+        }
+    });
+};
+
+
+app.get("/userCard", verifyUser, (req, res) => {
+    return res.json({
+        authenticated: req.isAuthenticated,
+        name: req.name,
+        email: req.email,
+        birth: req.birth
+    });
+});
+
+
 
 // init server
 app.listen(3000,()=>{

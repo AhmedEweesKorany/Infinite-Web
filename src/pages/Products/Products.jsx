@@ -31,7 +31,7 @@ function Products() {
 
   useEffect(()=>{
     getData(cate)
-  },[data])
+  },[])
   // pagination 
 
   const items = 4

@@ -133,6 +133,38 @@
     }
 }
 
+/*navbar person icon code*/
+
+.person-container{
+    position: relative;
+}
+
+.person-container .person-info{
+    display: none;
+    display: flex;
+    flex-direction: column;
+    z-index: 88;
+    justify-content: center;
+    align-items: center;
+    background-color: #e7dbdbdc;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 50px;
+    border-radius: 19px;
+    left: -120px;
+    padding: 20px;
+    width: 250px;
+    min-width: fit-content;
+    .img{
+        img{
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+}
+
+
 /*sdlide code*/
 
 .slider{
@@ -141,6 +173,7 @@
     position: relative;
     left: 0;
     overflow: hidden;
+    z-index: -9;
   
     .containerr{
       max-width: 300vw;
