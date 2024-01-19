@@ -20,6 +20,7 @@ import SingUp from "./pages/Login&Signup/SignUp";
 
 import Suc from "./pages/Login&Signup/Suc";
 import Login from "./pages/Login&Signup/Login";
+import Testimonial from "./components/Testimonials/Testimonials";
 
 const Layout = ()=>{
 
@@ -70,7 +71,8 @@ const router = createBrowserRouter([
 ]); 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    // <RouterProvider router={router}/>
+    <Testimonial/>
   );
 }
 

@@ -533,7 +533,7 @@
     width: 100%;
 }
 .backcolor{
-    height: 65vh;
+    height: 60vh;
     width: 100%;
     background-color: #f3e3c2;
 }
@@ -542,7 +542,7 @@
     background-color: white;
   
     margin: 50px auto;
-    margin-top: -300px;
+    margin-top: -500px;
     padding: 0 40px;
 }
 ::-webkit-scrollbar{
@@ -779,4 +779,29 @@
 
 .formInput input:invalid[focused="true"] ~ span{
     display: block;
+}
+/* testimonial */
+.slid .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slid .image img{
+    margin: 50px auto;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.reviews_des{
+    text-align: center;
+    padding-bottom: 28px ;
+}
+
+.swipe_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d5e6ec;
 }
