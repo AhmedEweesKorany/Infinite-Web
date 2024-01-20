@@ -106,10 +106,11 @@ app.post("/adduser",(req,res)=>{
 })
 
 // login code 
-
+ let loginEmail = "";
+ module.exports = loginEmail
 app.post("/login",(req,res)=>{
     const {email,password} = req.body
-
+    loginEmail = email;
     const sql = 'SELECT * FROM `users` WHERE email = ?'
 
     connection.execute(sql,[email],(err,data)=>{
@@ -166,17 +167,27 @@ const verifyUser = (req, res, next) => {
     });
 };
 
-
-app.get("/userCard", verifyUser, (req, res) => {
-    return res.json({
-        authenticated: req.isAuthenticated,
-        name: req.name,
-        email: req.email,
-        birth: req.birth
-    });
+// get user info if logged in
+app.get("/userCard", verifyUser, (req, res) => {    
+    const sql = 'SELECT * FROM `users` WHERE email = ?'
+    connection.execute(sql,[loginEmail],(err,data)=>{
+        if(err) return res.json({Error:"error while executing query"})
+        return res.json({
+            authenticated: req.isAuthenticated,
+            name: data[0].username,
+            email: data[0].email,
+            birth: data[0].birthday
+        });
+    })
 });
 
+//logout function
 
+app.get("/logout",(req,res)=>{
+    res.clearCookie("token")
+
+    return res.json({status:true})
+})
 
 // init server
 app.listen(3000,()=>{

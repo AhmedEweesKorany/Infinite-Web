@@ -3,11 +3,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import FormInput from '../../components/FormInputs/Forminputs';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { Auth } from '../../rtk/slices/isAthun';
+
 const Login = () => {
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
+
+
+  const dispatch = useDispatch()
+
 
   const [loginError,setLoginError] = useState("")
 
@@ -42,6 +49,7 @@ const Login = () => {
 
       // Handle the response from the server if needed
       if(response.data === true){
+        dispatch(Auth(true))
         navigate("/")
       }else if(response.data.Error === "invalid password ya m3lm"){
         setLoginError("invalid password")

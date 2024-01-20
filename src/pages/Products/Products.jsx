@@ -17,7 +17,7 @@ function Products() {
 
 
   const state = useSelector(state=>state)
-  console.log(state.cart)
+  console.log(state)
   const dispatch = useDispatch()
   let {cate} = useParams();
   const [data,setData] = useState([]);

@@ -20,6 +20,7 @@ import SingUp from "./pages/Login&Signup/SignUp";
 
 import Suc from "./pages/Login&Signup/Suc";
 import Login from "./pages/Login&Signup/Login";
+import UserinfoCard from "./components/UserinfoCard/UserinfoCard";
 
 const Layout = ()=>{
 
@@ -51,12 +52,14 @@ const router = createBrowserRouter([
       {
         path:"/Contact",
         element:<ContactUs/>
+      },{
+        path: "/about",
+        element: <AboutUs/>
+      },{
+        path:"/UserInfo",element:<UserinfoCard/>
       }
       
     ]
-  },{
-    path: "/about",
-    element: <AboutUs/>
   },{
     path:"/Signup",
     element:<SingUp/>

@@ -5,12 +5,15 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { notAuth } from '../../rtk/slices/isAthun';
 
 const Navbar = () => {
 const state = useSelector(state=>state.cart)
 const [showUser,setShowUser] = useState(false);
+
+const dispatch = useDispatch()
 
 const [auth,setAuth] = useState(false);
 const [name,setName] = useState("")
@@ -33,6 +36,12 @@ axios.get("http://localhost:3000/userCard").then(response=>{
 })
 },[])
 
+const handelLogout = ()=>{
+    axios.get("http://localhost:3000/logout").then(res=>{
+        dispatch(notAuth())
+        window.location.reload()
+    }).catch(e=>console.log(e))
+}
 const userInfo = auth ?  <div className="person-info">
 <div className="img">
     <img src="https://img.freepik.com/free-vector/organic-flat-business-person-meditating_23-2148911200.jpg?size=626&ext=jpg&ga=GA1.1.996181127.1705689649&semt=sph" alt="" />
@@ -40,8 +49,8 @@ const userInfo = auth ?  <div className="person-info">
 <div className="content">
 <h3>Hello {name}</h3>
 <h4>{email}</h4>
-<h5>{birth}</h5>
-<button className='btn btn-outline-danger '>Log Out</button>
+<h5>{birth.toString()}</h5>
+<button className='btn btn-outline-danger d-block  w-100 ' onClick={handelLogout}>Log Out</button>
 </div>
 </div>: 
 <div className="person-info">
@@ -50,7 +59,7 @@ const userInfo = auth ?  <div className="person-info">
 </div>
 <div className="content">
 <h4>Sign In Now</h4>
-<button className='btn d-block w-100 btn-outline-primary '>Sign In</button>
+<Link to={"/login"} className='btn d-block w-100 btn-outline-primary '>Sign In</Link>
 </div>
 </div>
 
@@ -106,15 +115,15 @@ const userInfo = auth ?  <div className="person-info">
                     <input type="checkbox" name="" id="check" />
                     <div className="items">
                     <div className="item">
-                    <Link to="/">Home</Link>
+                    <a href="/">Home</a>
 
                 </div>
                 <div className="item">
-                    <Link to="/about">About</Link>
+                    <a href="/about">About</a>
 
                 </div>
                 <div className="item">
-                    <Link to="/Contact">Contact</Link>
+                    <a href="/Contact" >Contact</a>
 
                 </div>
 
@@ -125,19 +134,19 @@ const userInfo = auth ?  <div className="person-info">
 
             
                 <div className="item">
-                <Link to="#"><SearchIcon/></Link>
+                <a href="#"><SearchIcon/></a>
 
                 </div>
                 <div className="item">
-                    <Link to="#"><PersonOutlineIcon/></Link>
+                    <a href="/UserInfo"><PersonOutlineIcon/></a>
 
                 </div>
                 <div className="item">
-                    <Link to="#"><FavoriteBorderIcon/></Link>
+                    <a href="#"><FavoriteBorderIcon/></a>
 
                 </div>
                 <div className="item cart">
-                    <Link to="#"><ShoppingCartOutlinedIcon/></Link>
+                    <a href="#"><ShoppingCartOutlinedIcon/></a>
                     <span>{state.length}</span>
                 
                 </div>

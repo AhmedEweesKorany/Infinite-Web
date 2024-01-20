@@ -151,20 +151,66 @@
     position: absolute;
     top: 50px;
     border-radius: 19px;
-    left: -120px;
+    left: -130px;
     padding: 20px;
     width: 250px;
     min-width: fit-content;
     .img{
         img{
-            width: 100%;
+            width: 150px;
             border-radius: 50%;
+        }
+    }
+
+    .content{
+        h3{
+            font-size: 20px;
+        }
+        h4{
+            font-size: 18px;
+        }
+        h5{
+            font-size: 16px;
         }
     }
 
 }
 
+/*user infro card*/
 
+.single-page-card{
+    text-align: center;
+    padding: 22px;
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    height: 80vh;
+    .img{
+        img{
+            width: 150px;
+            border-radius: 50%;
+        }
+    }
+
+    .content{
+        h3{
+            font-size: 20px;
+        }
+        h4{
+            font-size: 18px;
+        }
+        h5{
+            font-size: 16px;
+        }
+    }
+
+    /* height: 100vh; */
+}
 /*sdlide code*/
 
 .slider{
@@ -173,7 +219,6 @@
     position: relative;
     left: 0;
     overflow: hidden;
-    z-index: -9;
   
     .containerr{
       max-width: 300vw;
