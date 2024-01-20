@@ -8,6 +8,8 @@ import { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import BalanceIcon from '@mui/icons-material/Balance';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,6 +17,11 @@ function Product() {
 
 
   const [count, setCount] = useState(0);
+
+  const state = useSelector(x=>x)
+  const dispatch = useDispatch()
+
+
 
   const increment = () => {
     setCount(count + 1);
@@ -72,17 +79,23 @@ function Product() {
               <span> {count} </span>
               <button className="btn btn-secondary" onClick={increment}>+</button>
             </div>
-            <button className="btn btn-primary rounded-0 w-25 mb-4">
-              <AddShoppingCartIcon />Add to cart
-            </button>
+            {state.Auth == true ? <button className="btn btn-primary rounded-0 w-25 mb-4" onClick={()=>{
+              //send qunatitiy to store 
 
-            <div className="row mb-5">
-              <a href="#" className="col-3" style={{ textDecoration: 'none' }}>
+            }}>
+              <AddShoppingCartIcon />Add to cart
+            </button> : <Link to={"/login"} className="btn btn-primary rounded-0 w-25 mb-4">
+              <AddShoppingCartIcon />Add to cart
+            </Link>}
+
+            <div className="row mb-5 d-block ">
+              {state.Auth == true ? <button className="col-3" style={{ textDecoration: 'none' }} onClick={()=>{
+                // add item to wash list
+              }}>
                 <FavoriteBorderIcon /> add to wish list
-              </a>
-              <a href="#" className="col-3" style={{ textDecoration: 'none' }}>
-                <BalanceIcon /> add to compain
-              </a>
+              </button>:<Link to="/login" className="col-3" style={{ textDecoration: 'none' }}>
+                <FavoriteBorderIcon /> add to wish list
+              </Link>}
             </div>
 
             <div>

@@ -3,14 +3,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { notAuth } from '../../rtk/slices/isAthun';
 
 const Navbar = () => {
-const state = useSelector(state=>state.cart)
+const allState = useSelector(state=>state)
+console.log(allState.Auth)
+const state = allState.cart
 const [showUser,setShowUser] = useState(false);
 
 const dispatch = useDispatch()
@@ -20,6 +22,8 @@ const [name,setName] = useState("")
 const [email,setEmail] = useState("")
 const [birth,setBirth] = useState("")
 
+
+const navigate = useNavigate()
 
 axios.defaults.withCredentials = true
 useEffect(()=>{
@@ -102,11 +106,10 @@ const userInfo = auth ?  <div className="person-info">
                  {showUser ?  userInfo:""}
                 </div>
                 <div className="item">
-                    <Link to="#"><FavoriteBorderIcon/></Link>
-
+                    {allState.Auth == true ?<Link to="#"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
                 </div>
-                <div className="item cart">
-                    <Link to="#"><ShoppingCartOutlinedIcon/></Link>
+                <div className="item cart" >
+                    {allState.Auth == true ? <Link to="/cart" ><ShoppingCartOutlinedIcon/></Link>:<Link to="/login" ><ShoppingCartOutlinedIcon/></Link>}
                     <span>{state.length}</span>
                 </div>
                 <div className="responsive-menu">
@@ -142,13 +145,11 @@ const userInfo = auth ?  <div className="person-info">
 
                 </div>
                 <div className="item">
-                    <a href="#"><FavoriteBorderIcon/></a>
-
+                    {allState.Auth == true ?<Link to="#"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
                 </div>
-                <div className="item cart">
-                    <a href="#"><ShoppingCartOutlinedIcon/></a>
+                <div className="item cart" >
+                    {allState.Auth == true ? <Link to="/cart" ><ShoppingCartOutlinedIcon/></Link>:<Link to="/login" ><ShoppingCartOutlinedIcon/></Link>}
                     <span>{state.length}</span>
-                
                 </div>
                     </div>
                     </div>

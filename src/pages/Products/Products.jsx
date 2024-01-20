@@ -64,10 +64,12 @@ return (
                 {item.isNew ? <span className="newSeazon">New Seazon</span>:null}
                 <div className="card-body">
                   <h6 className="card-title mt-2">{item.Product_Name}</h6>
-                  <button className="btn mt-3 btn-dark" onClick={()=>{
+                 {state.Auth == true ? <button className="btn mt-3 btn-dark" onClick={()=>{
                     dispatch(addToCart(item))
-                  }}>add to cart</button>
-                  <button className="btn mx-1 mt-3 btn-outline-danger no-hover "><FavoriteIcon className="svgnohover"/></button>
+                  }}>add to cart</button>: <Link className="btn mt-3 btn-dark" to={"/login"}>add to cart</Link>}
+                  {state.Auth == true ?<button className="btn mx-1 mt-3 btn-outline-danger no-hover " onClick={()=>{
+                    // add item to washlist here
+                  }}><FavoriteIcon className="svgnohover"/></button>:<Link to={"/login"} className="btn mx-1 mt-3 btn-outline-danger no-hover "><FavoriteIcon className="svgnohover"/></Link>}
                   <h4 className="card-text float-end  mt-4  price">${Price}</h4>
                 </div>
               </div>
