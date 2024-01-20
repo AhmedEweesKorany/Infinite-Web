@@ -17,12 +17,10 @@ function Products() {
 
 
   const state = useSelector(state=>state)
-  console.log(state)
   const dispatch = useDispatch()
   let {cate} = useParams();
   const [data,setData] = useState([]);
   async function getData(cate){
-    console.log(cate)
       const res  = await axios.get("http://localhost:3000",{params:{
         cate:cate
       }}).then(data=>setData(data.data))
@@ -58,9 +56,9 @@ return (
            
               <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5" key={item.Product_Id}>
               <div className="card pro-card">
-              <Link to={`/product/${item.Category}/${item.Product_Id}`}>
+              <a href={`/product/${item.Product_Id}`}>
                 <img src={item.Product_img1} alt="" className="card-img-top card-img" loading="lazy" />
-                </Link>
+                </a>
                 {item.isNew ? <span className="newSeazon">New Seazon</span>:null}
                 <div className="card-body">
                   <h6 className="card-title mt-2">{item.Product_Name}</h6>

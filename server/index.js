@@ -9,7 +9,8 @@ const salt = 10;
 
 
 const cookieParser = require("cookie-parser")
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { connect } = require("react-redux");
 const app = exprees()
 const port = process.env.PORT || 3000
 //access .env file
@@ -36,12 +37,12 @@ const connection = mysql.createConnection({
   // Restful APIs (get only for now )
 app.get("/",(req,res)=>{
     const cate = req.query.cate
+  
     let query;
     if(cate == "NewSeazon"){
          query = `SELECT * FROM Products WHERE isNew = 1 `
     }else if(!cate){
-        query = `SELECT * FROM Products`
-
+        query = `SELECT * FROM Products  `
     }
         else{
 
@@ -53,6 +54,14 @@ app.get("/",(req,res)=>{
         }else{
             res.send(data)
         }
+    })
+})
+app.get("/product/:id",(req,res)=>{ 
+    const id = +req.params.id
+    const query = `SELECT * FROM Products WHERE Product_Id = ${id}`
+    connection.execute(query,(err,data)=>{
+        if(err) return res.json({Error:"Error happend on query"})
+        return res.send(data)
     })
 })
 
@@ -170,15 +179,17 @@ const verifyUser = (req, res, next) => {
 // get user info if logged in
 app.get("/userCard", verifyUser, (req, res) => {    
     const sql = 'SELECT * FROM `users` WHERE email = ?'
+
     connection.execute(sql,[loginEmail],(err,data)=>{
         if(err) return res.json({Error:"error while executing query"})
         return res.json({
-            authenticated: req.isAuthenticated,
-            name: data[0].username,
-            email: data[0].email,
-            birth: data[0].birthday
-        });
-    })
+                authenticated: req.isAuthenticated,
+                name: data[0].username,
+                email: data[0].email,
+                birth: data[0].birthday
+            });
+        })
+    
 });
 
 //logout function
