@@ -9,18 +9,9 @@ const Cart = () => {
   const dispatch = useDispatch()
   console.log(state.cart)
 
-    const [count, setCount] = useState(1);
+  let product_price = 0;
+  let qun = 0;
 
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-
-  }
   return (
    
 
@@ -36,6 +27,19 @@ const Cart = () => {
           {/* products */}
 
        {state.cart.map(item=>{
+      product_price += +item.Product_Price
+    const [count, setCount] = useState(+item.quantity);
+    qun += count;
+    const increment = () => {
+      setCount(count + 1);
+    };
+  
+    const decrement = () => {
+      if (count > 1) {
+        setCount(count - 1);
+      }
+  
+    }
         console.log(item)
         return (
           <>
@@ -55,7 +59,7 @@ const Cart = () => {
       <div className=" col-md-9 mt-3">
         <div className="col-sm-12 col-8 ">
           <button className='btn btn-primary pe-3 ps-3 ' onClick={increment}> + </button>
-          <span > {item.quantity}  </span>
+          <span > {count}  </span>
           <button className='btn btn-primary pe-3 ps-3' onClick={decrement}>-</button>
         </div>
         <div className="col-md-4  col-sm-12">
@@ -88,16 +92,16 @@ const Cart = () => {
 
       {/* summary */}
 
-        <div className=" col-md-4 h-50 col-sm-12 bg-light rounded-3 mt-3 mt-md-0">
+        <div className=" col-md-4 h-50 col-sm-12 bg-light rounded-3 mt-3 mt-md-0 shadow ">
 
           <h2 className='mt-3'>Summary</h2>
           <hr />
-          <p className='mt-4'>Products : $53.99</p>
+          <p className='mt-4'>Products : {product_price ? parseInt(product_price * qun ): null}$ </p>
           <p>Shipping Gratis</p>
           <hr />
 
-          <h3>Total Amount (including VAT)</h3>
-          <h4>$53.99</h4>
+          <h5>Total Amount (including 5% TAX)</h5>
+          <h4>{product_price ? parseInt( (product_price * qun ) + (product_price * qun * 0.05)): null}$</h4>
 
           <button className='btn btn-primary mt-3 mb-3 w-100'>Go to checkout</button>
 
