@@ -91,12 +91,6 @@ const userInfo = auth ?  <div className="person-info">
                     <a href="#category">Category</a>
 
                 </div>
-
-            
-                <div className="item">
-                <Link to="#"><SearchIcon/></Link>
-
-                </div>
                 <div className="item person-container">
                     <div onClick={()=>{
                         setShowUser(!showUser)
@@ -106,7 +100,7 @@ const userInfo = auth ?  <div className="person-info">
                  {showUser ?  userInfo:""}
                 </div>
                 <div className="item">
-                    {allState.Auth == true ?<Link to="#"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
+                    {allState.Auth == true ?<Link to="/favlist"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
                 </div>
                 <div className="item cart" >
                     {allState.Auth == true ? <Link to="/cart" ><ShoppingCartOutlinedIcon/></Link>:<Link to="/login" ><ShoppingCartOutlinedIcon/></Link>}
@@ -145,7 +139,7 @@ const userInfo = auth ?  <div className="person-info">
 
                 </div>
                 <div className="item">
-                    {allState.Auth == true ?<Link to="#"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
+                {allState.Auth == true ?<Link to="/favlist"><FavoriteBorderIcon/></Link>:<Link to="/login"><FavoriteBorderIcon/></Link>}
                 </div>
                 <div className="item cart" >
                     {allState.Auth == true ? <Link to="/cart" ><ShoppingCartOutlinedIcon/></Link>:<Link to="/login" ><ShoppingCartOutlinedIcon/></Link>}

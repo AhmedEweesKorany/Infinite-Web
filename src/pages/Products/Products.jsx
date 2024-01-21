@@ -12,6 +12,11 @@ import WestOutlinedIcon from "@mui/icons-material/WestOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../rtk/slices/Cart-slice";
 import { Link } from "react-router-dom";
+import { addToFav } from "../../rtk/slices/fav-slice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+// import Swal from 'sweetalert2'
 
 function Products() {
 
@@ -64,9 +69,12 @@ return (
                   <h6 className="card-title mt-2">{item.Product_Name}</h6>
                  {state.Auth == true ? <button className="btn mt-3 btn-dark" onClick={()=>{
                     dispatch(addToCart(item))
+                    toast.success("item added successfully")
                   }}>add to cart</button>: <Link className="btn mt-3 btn-dark" to={"/login"}>add to cart</Link>}
                   {state.Auth == true ?<button className="btn mx-1 mt-3 btn-outline-danger no-hover " onClick={()=>{
                     // add item to washlist here
+                    dispatch(addToFav(item))
+                    toast("item added to Favourite ❤")
                   }}><FavoriteIcon className="svgnohover"/></button>:<Link to={"/login"} className="btn mx-1 mt-3 btn-outline-danger no-hover "><FavoriteIcon className="svgnohover"/></Link>}
                   <h4 className="card-text float-end  mt-4  price">${Price}</h4>
                 </div>
@@ -117,6 +125,7 @@ return (
         </div>
       </div>
     </div>
+    <ToastContainer/>
   </div>
 )}
 

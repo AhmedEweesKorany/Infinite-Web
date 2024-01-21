@@ -8,7 +8,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { addToCart } from '../../rtk/slices/Cart-slice';
-
+import { addToFav } from '../../rtk/slices/fav-slice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 function Product() {
 
@@ -90,6 +94,7 @@ function Product() {
               //send qunatitiy to store 
               for(let i=0;i<count;i++){
                 dispatch(addToCart(data))
+                toast.success("item added successfully")
               }
             }}>
               <AddShoppingCartIcon />Add to cart
@@ -100,6 +105,9 @@ function Product() {
             <div className="row mb-5">
               {state.Auth == true ? <a className="col-3" style={{ textDecoration: 'none',cursor:"pointer"}} onClick={()=>{
                 // add item to wash list
+
+                dispatch(addToFav(data))
+                toast("item added to Favourite ❤")
               }}>
                 <FavoriteBorderIcon /> add to wish list
               </a>:<Link to="/login" className="col-3" style={{ textDecoration: 'none' }}>
@@ -113,6 +121,7 @@ function Product() {
            
           </div>
         </div>
+      <ToastContainer/>
       </div>
     </>
   );

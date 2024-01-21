@@ -22,6 +22,8 @@ import Cart from "./components/cart/Cart"
 import Suc from "./pages/Login&Signup/Suc";
 import Login from "./pages/Login&Signup/Login";
 import UserinfoCard from "./components/UserinfoCard/UserinfoCard";
+import FavList from "./components/FavList/FavList";
+
 
 const Layout = ()=>{
 
@@ -61,6 +63,9 @@ const router = createBrowserRouter([
       },{
         path:"/cart",
         element:<Cart/>
+      },{
+        path:"/favlist",
+        element:<FavList/>
       }
       
     ]
