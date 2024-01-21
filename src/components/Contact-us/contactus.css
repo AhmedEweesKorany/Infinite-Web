@@ -1,0 +1,102 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body */
+
+/* contact-us */
+.home-contact-us {
+    width: 50%;
+    margin: 100px auto;
+    height:90vh;
+    border-radius: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 75px;
+}
+
+/* contact-us H1 */
+.home-contact-us  h1{
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* contact-us input name , email , message */
+.home-contact-us  .name , .email , .message{
+    background-color: #fbfbfb;
+    border: none;
+    padding: 10px 25px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+/* placeholder  */
+.home-contact-us  .name::placeholder , .contact-us .email::placeholder, .contact-us .message::placeholder {
+    color: #b7b8b3;
+}
+
+/* Id for message */
+.home-contact-us  #message{
+    height: 125px;
+    min-height: 50px;
+    max-height: 175px;
+}
+
+/* input submit */
+.home-contact-us  .submit{
+    background-color: #2850e1;
+    border: none;
+    color: white;
+    font-weight: 600;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+/* input submit hover */
+.home-contact-us  .submit:hover{
+    color: #b7b8b3;
+}
+
+/* Media Query */
+@media(max-width:800px){
+    .home-contact-us {
+        width: 60%;
+        padding: 50px;
+    }
+}
+
+@media(max-width:600px){
+    .home-contact-us {
+        width: 70%;
+        padding: 50px 40px;
+    }
+}
+
+@media(max-width:500px){
+    .home-contact-us {
+        width: 80%;
+        padding: 50px 30px;
+    }
+}
+
+@media(max-width:400px){
+    .home-contact-us {
+        width: 90%;
+        padding: 50px 25px;
+    }
+} 

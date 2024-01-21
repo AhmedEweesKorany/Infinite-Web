@@ -776,6 +776,32 @@
 }
 
 
+/*testmioal sameeh*/
+/* testimonial */
+.slid .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slid .image img{
+    margin: 50px auto;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.reviews_des{
+    text-align: center;
+    padding-bottom: 28px ;
+}
+
+.swipe_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #d5e6ec; */
+}
 
 
 /*Login and SignUp Pages*/

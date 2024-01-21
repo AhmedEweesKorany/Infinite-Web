@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 function Card({item}) {
   return (
-    <Link className='link' to={`/product/ternding/${item.id}`}>
+    <Link className='link' to={`/product/${item.id}`}>
     <div className='item-card'>
 
       <div className="image">

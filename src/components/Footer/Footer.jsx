@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="header">
+      <div className="header ">
         <h1>Infinite Web</h1>
       </div>
       <div className="content">

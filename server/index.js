@@ -65,6 +65,16 @@ app.get("/product/:id",(req,res)=>{
     })
 })
 
+// popular product
+
+app.get("/popular",(req,res)=>{
+    const query = "SELECT * FROM Products ORDER BY rate DESC LIMIT 5"
+    connection.execute(query,(err,data)=>{
+        if(err) return res.json({Error:"error happend in sql server"})
+
+        return res.send(data)
+    })
+})
 
 // adding new product (allowed for those who have admin role only)
 app.post("/addItem",(req,res)=>{

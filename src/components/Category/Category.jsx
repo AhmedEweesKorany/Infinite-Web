@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Category = () => {
   return (
+   <>
+   <h1 className="text-center mt-5 mb-5">Categories</h1>
     <div className="product-category" id="category">
       <div className="column">
         <div className="sf">
@@ -76,6 +78,7 @@ const Category = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 
