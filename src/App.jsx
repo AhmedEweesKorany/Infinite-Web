@@ -9,9 +9,8 @@ import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ContactUs from "./pages/ContactUs/ContactUs";
-// bootstrap link
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.js"
 //main css file 
 import "./main.css"
 
@@ -19,7 +18,6 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import SingUp from "./pages/Login&Signup/SignUp";
 import Cart from "./components/cart/Cart"
 
-import Suc from "./pages/Login&Signup/Suc";
 import Login from "./pages/Login&Signup/Login";
 import UserinfoCard from "./components/UserinfoCard/UserinfoCard";
 import FavList from "./components/FavList/FavList";
@@ -72,9 +70,6 @@ const router = createBrowserRouter([
   },{
     path:"/Signup",
     element:<SingUp/>
-  },{
-    path:"/suc-signup",
-    element:<Suc/>
   },{
     path:"/login",
     element:<Login/>

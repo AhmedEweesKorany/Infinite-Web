@@ -77,7 +77,7 @@ const SingUp = () => {
 
       // Handle the response from the server if needed
       if(response.data === true){
-         navigate("/suc-signup")
+         navigate("/login")
       }else if(response.data.Error == "user already exist"){
         setSignupError(response.data.Error)
       }

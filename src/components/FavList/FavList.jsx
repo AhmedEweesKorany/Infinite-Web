@@ -12,7 +12,7 @@ const FavList = () => {
 
     console.log(state)
   return (
-   <div className="products">
+   <>
      <div className="container">
         <div className="row">
             {
@@ -44,7 +44,8 @@ const FavList = () => {
         </div>
     </div>
 <ToastContainer/>
-   </div>
+   </>
+   
   )
 }
 

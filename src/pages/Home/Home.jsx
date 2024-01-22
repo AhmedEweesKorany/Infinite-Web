@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className='Home'>
      <Slider/>
-     {/* <FeatureProduct type="feature"/>  */}
+     <FeatureProduct type="feature"/> 
      <Category/>
      {/* <FeatureProduct type="trending"/> */}
      <Testimonial/>

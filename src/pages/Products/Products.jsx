@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.js"
 import "../Products/style.css";
 import "./product";
 import { useParams } from "react-router";
