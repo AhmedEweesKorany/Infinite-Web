@@ -13,6 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.js"
 //main css file 
 import "./main.css"
+// react-slick 
+
+import "~slick-carousel/slick/slick.css"; 
+import "~slick-carousel/slick/slick-theme.css";
+
 
 import AboutUs from "./pages/AboutUs/AboutUs";
 import SingUp from "./pages/Login&Signup/SignUp";
