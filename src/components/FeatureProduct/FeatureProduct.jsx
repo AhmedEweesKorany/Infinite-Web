@@ -6,65 +6,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import Slider from "react-slick";
 import axios from 'axios';
 import { addToCart } from '../../rtk/slices/Cart-slice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const FeatureProduct = ({ type }) => {
   const dispatch = useDispatch()
+  const isAuth = useSelector(x=>x.Auth)
+  console.log(isAuth)
   const [getdata,setGetdata] = useState([])
   useEffect(()=>{
     axios.get("http://localhost:3000/popular").then(res=>{
       setGetdata(res.data)
     })
   },[])
-  const data = [
-    {
-      "id": 1,
-      "img": "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "img2": "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "title": "Product 1",
-      "isNew": true,
-      "oldPrice": 30.00,
-      "newPrice": 24.99
-    },
-    {
-      "id": 2,
-      "img": "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "img2": "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "title": "Product 2",
-      "isNew": false,
-      "oldPrice": 45.00,
-      "newPrice": 39.99
-    },
-    {
-      "id": 3,
-      "img": "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "img2": "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "title": "Product 3",
-      "isNew": true,
-      "oldPrice": 20.00,
-      "newPrice": 15.99
-    },
-    {
-      "id": 4,
-      "img": "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "img2": "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "title": "Product 4",
-      "isNew": false,
-      "oldPrice": 55.00,
-      "newPrice": 49.99
-    }
-  ]
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500
-  };
   return (
     <div className='featureproduct'>
 
@@ -90,16 +47,20 @@ const FeatureProduct = ({ type }) => {
                   <div className="card-body">
                     <h6 className="card-title mt-2">{item.Product_Name}</h6>
              
-                    <button className="btn mt-3 btn-dark" onClick={()=>{
+                  {isAuth == true ?   <button className="btn mt-3 btn-dark" onClick={()=>{
                     dispatch(addToCart(item))
                     toast.success("item added successfully")
-                  }}>add to cart</button>
-                  <button className="btn mx-1 mt-3 btn-outline-danger no-hover " onClick={()=>{
+                  }}>add to cart</button>:  <Link className="btn mt-3 btn-dark" to={"/login"} onClick={()=>{
+                  
+                  }}>add to cart</Link>}
+               {isAuth == true ?    <button className="btn mx-1 mt-3 btn-outline-danger no-hover " onClick={()=>{
                     // add item to washlist here
                     dispatch(addToFav(item))
                     toast("item added to Favourite ❤")
                   }}><FavoriteIcon className="svgnohover"/></button>
-                
+                :   <Link to={"/login"} className="btn mx-1 mt-3 btn-outline-danger no-hover " onClick={()=>{
+                }}><FavoriteIcon className="svgnohover"/></Link>
+              }
                     <h4 className="card-text float-end  mt-4  price">{parseInt(item.Product_Price)}$</h4>
                   </div>
                 </div>
