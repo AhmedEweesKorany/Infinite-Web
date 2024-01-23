@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { removeFromFav } from '../../rtk/slices/fav-slice';
-import { ToastContainer } from 'react-toastify';
+import { addToFav, removeFromFav } from '../../rtk/slices/fav-slice';
+import { ToastContainer, toast } from 'react-toastify';
+import Slider from "react-slick";
+import axios from 'axios';
+import { addToCart } from '../../rtk/slices/Cart-slice';
+import { useDispatch } from 'react-redux';
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const FeatureProduct = ({ type }) => {
+  const dispatch = useDispatch()
+  const [getdata,setGetdata] = useState([])
+  useEffect(()=>{
+    axios.get("http://localhost:3000/popular").then(res=>{
+      setGetdata(res.data)
+    })
+  },[])
   const data = [
     {
       "id": 1,
@@ -46,7 +57,14 @@ const FeatureProduct = ({ type }) => {
       "newPrice": 49.99
     }
   ]
-
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500
+  };
   return (
     <div className='featureproduct'>
 
@@ -62,13 +80,12 @@ const FeatureProduct = ({ type }) => {
         {/* <OwlCarousel className='owl-theme' loop margin={10} nav> */}
 
             {
-              data.map((item)=>{
+              getdata.map((item)=>{
                     return (
-                        <>
-                   <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5 "  style={{width:"260px"}}>
+                   <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5 "  style={{width:"280px"}} key={item.Product_Id}>
                 <div className="card pro-card">
                 <a href={`#`}>
-                  <img src={item.img2} alt="" className="card-img-top card-img" loading="lazy" style={{height:"200px",minHeight:"fit-content",padding:"20px"}} />
+                  <img src={item.Product_img1} alt="" className="card-img-top card-img" loading="lazy" style={{height:"200px",minHeight:"fit-content",padding:"20px"}} />
                   </a>
                   <div className="card-body">
                     <h6 className="card-title mt-2">{item.Product_Name}</h6>
@@ -83,11 +100,10 @@ const FeatureProduct = ({ type }) => {
                     toast("item added to Favourite ❤")
                   }}><FavoriteIcon className="svgnohover"/></button>
                 
-                    <h4 className="card-text float-end  mt-4  price">{parseInt(item.newPrice)}$</h4>
+                    <h4 className="card-text float-end  mt-4  price">{parseInt(item.Product_Price)}$</h4>
                   </div>
                 </div>
               </div>
-                        </>
                     )
                   })
                   

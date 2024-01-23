@@ -15,10 +15,6 @@ import "bootstrap/dist/js/bootstrap.bundle.js"
 import "./main.css"
 // react-slick 
 
-import "~slick-carousel/slick/slick.css"; 
-import "~slick-carousel/slick/slick-theme.css";
-
-
 import AboutUs from "./pages/AboutUs/AboutUs";
 import SingUp from "./pages/Login&Signup/SignUp";
 import Cart from "./components/cart/Cart"
@@ -26,6 +22,7 @@ import Cart from "./components/cart/Cart"
 import Login from "./pages/Login&Signup/Login";
 import UserinfoCard from "./components/UserinfoCard/UserinfoCard";
 import FavList from "./components/FavList/FavList";
+import CenterMode from "./components/fake/Contact";
 
 
 const Layout = ()=>{

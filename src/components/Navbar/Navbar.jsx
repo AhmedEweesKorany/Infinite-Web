@@ -43,6 +43,7 @@ axios.get("http://localhost:3000/userCard").then(response=>{
 const handelLogout = ()=>{
     axios.get("http://localhost:3000/logout").then(res=>{
         dispatch(notAuth())
+        navigate("/")
         window.location.reload()
     }).catch(e=>console.log(e))
 }
